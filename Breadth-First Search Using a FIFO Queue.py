@@ -12,6 +12,7 @@ for node in nx.bfs_tree(graph, nodes["edinburgh"]):
         break
 else:
     print("Not found")
+
 print("_________________________________________________")
 def order(neighbors):
     def by_latitude(city):
@@ -25,4 +26,25 @@ for node in nx.bfs_tree(graph, nodes["edinburgh"], sort_neighbors=order):
         break
 else:
     print("Not found")
+
 print("_________________________________________________")
+from graph import (
+    City,
+    load_graph,
+    breadth_first_traverse,
+    breadth_first_search as bfs,
+)
+
+def is_twentieth_century(city):
+    return city.year and 1901 <= city.year <= 2000
+
+nodes, graph = load_graph("roadmap.dot", City.from_dict)
+city = bfs(graph, nodes["edinburgh"], is_twentieth_century)
+print(city.name)
+
+
+for city in breadth_first_traverse(graph, nodes["edinburgh"]):
+    print(city.name)
+print("_________________________________________________")
+
+
