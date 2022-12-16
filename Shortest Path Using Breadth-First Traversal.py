@@ -21,3 +21,8 @@ print(" → ".join(
     city.name
     for city in shortest_path(graph, city1, city2, by_latitude)
 ))
+print("_________________________________________________")
+from graph import connected
+print(connected(graph, nodes["belfast"], nodes["glasgow"]))
+
+print(connected(graph, nodes["belfast"], nodes["derry"]))
