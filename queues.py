@@ -30,7 +30,7 @@ class Queue1:
         return self._elements.popleft()
 
 
-class Stack(Queue):
+class Stack(Queue1):
     def dequeue(self):
         return self._elements.pop()
 

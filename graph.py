@@ -2,7 +2,7 @@
 from typing import NamedTuple
 import networkx as nx
 from collections import deque
-from queues1 import Queue, Stack
+from queues import Queue1, Stack
 class City(NamedTuple):
     name: str
     country: str
@@ -35,7 +35,7 @@ def load_graph(filename, node_factory):
 
 
 def breadth_first_traverse(graph, source, order_by=None):
-    queue = Queue(source)
+    queue = Queue1(source)
     visited = {source}
     while queue:
         yield (node := queue.dequeue())
@@ -49,7 +49,7 @@ def breadth_first_traverse(graph, source, order_by=None):
 
 
 def shortest_path(graph, source, destination, order_by=None):
-    queue = Queue(source)
+    queue = Queue1(source)
     visited = {source}
     previous = {}
     while queue:

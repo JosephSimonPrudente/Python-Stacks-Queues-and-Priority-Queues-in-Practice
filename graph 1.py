@@ -1,4 +1,11 @@
 from graph import City, load_graph
+import networkx as nx
+print("_________________________________________________")
+print(nx.nx_agraph.read_dot("roadmap.dot"))
+print("_________________________________________________")
+graph = nx.nx_agraph.read_dot("roadmap.dot")
+print(graph.nodes["london"])
+
 print("_________________________________________________")
 nodes, graph = load_graph("roadmap.dot", City.from_dict)
 
